@@ -29,10 +29,11 @@ class Predict:
         st.image(self.img.to_thumb(500,500), caption='Uploaded Image')
 
     def get_prediction(self):
+        pred_dict = {'WithMask':' 😷', 'WithoutMask':' 😐 (Please wear one !)'}
 
         if st.button('Classify'):
             pred, pred_idx, probs = self.learn_inference.predict(self.img)
-            st.write(f'Prediction: {pred}; Probability: {probs[pred_idx]:.04f}')
+            st.write(f'Prediction: {pred + pred_dict[pred]}; Probability: {probs[pred_idx]:.04f}')
         else: 
             st.write(f'Click the button to classify') 
 
