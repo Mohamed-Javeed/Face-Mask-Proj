@@ -14,6 +14,8 @@ class Predict:
     def __init__(self, filename):
         self.learn_inference = load_learner(Path()/filename)
         self.img = self.get_image_from_upload()
+        st.header("Face Mask Predictor")
+        st.text("By A.Mohamed Javeed, D.Naresh, M.R.Goutham")
         if self.img is not None:
             self.display_output()
             self.get_prediction()
